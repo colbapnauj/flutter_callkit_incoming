@@ -12,6 +12,9 @@ data class Data(val args: Map<String, Any?>) {
     var uuid: String = (args["id"] as? String) ?: ""
     var nameCaller: String = (args["nameCaller"] as? String) ?: ""
     var appName: String = (args["appName"] as? String) ?: ""
+    var title: String = (args["title"] as? String) ?: ""
+    var serviceType: String = (args["serviceType"] as? String) ?: ""
+    var dateTime: String = (args["dateTime"] as? String) ?: ""
     var handle: String = (args["handle"] as? String) ?: ""
     var avatar: String = (args["avatar"] as? String) ?: ""
     var type: Int = (args["type"] as? Int) ?: 0
@@ -48,6 +51,9 @@ data class Data(val args: Map<String, Any?>) {
             backgroundUrl = (android["backgroundUrl"] as? String) ?: ""
             actionColor = (android["actionColor"] as? String) ?: "#4CAF50"
             isShowMissedCallNotification = (android["isShowMissedCallNotification"] as? Boolean) ?: true
+            title = (android["title"] as? String) ?: ""
+            serviceType = (android["serviceType"] as? String) ?: ""
+            dateTime = (android["dateTime"] as? String) ?: ""
         } else {
             isCustomNotification = (args["isCustomNotification"] as? Boolean) ?: false
             isShowLogo = (args["isShowLogo"] as? Boolean) ?: false
@@ -76,6 +82,9 @@ data class Data(val args: Map<String, Any?>) {
         bundle.putString(CallkitIncomingBroadcastReceiver.EXTRA_CALLKIT_ID, id)
         bundle.putString(CallkitIncomingBroadcastReceiver.EXTRA_CALLKIT_NAME_CALLER, nameCaller)
         bundle.putString(CallkitIncomingBroadcastReceiver.EXTRA_CALLKIT_HANDLE, handle)
+        bundle.putString(CallkitIncomingBroadcastReceiver.EXTRA_CALLKIT_TITLE, title)
+        bundle.putString(CallkitIncomingBroadcastReceiver.EXTRA_CALLKIT_SERVICE_TYPE, serviceType)
+        bundle.putString(CallkitIncomingBroadcastReceiver.EXTRA_CALLKIT_DATETIME, dateTime)
         bundle.putString(CallkitIncomingBroadcastReceiver.EXTRA_CALLKIT_AVATAR, avatar)
         bundle.putInt(CallkitIncomingBroadcastReceiver.EXTRA_CALLKIT_TYPE, type)
         bundle.putLong(CallkitIncomingBroadcastReceiver.EXTRA_CALLKIT_DURATION, duration)
@@ -124,6 +133,12 @@ data class Data(val args: Map<String, Any?>) {
                     bundle.getString(CallkitIncomingBroadcastReceiver.EXTRA_CALLKIT_NAME_CALLER, "")
             data.appName =
                     bundle.getString(CallkitIncomingBroadcastReceiver.EXTRA_CALLKIT_APP_NAME, "")
+            data.title =
+                    bundle.getString(CallkitIncomingBroadcastReceiver.EXTRA_CALLKIT_TITLE, "")
+            data.serviceType =
+                    bundle.getString(CallkitIncomingBroadcastReceiver.EXTRA_CALLKIT_SERVICE_TYPE,"")
+            data.dateTime =
+                    bundle.getString(CallkitIncomingBroadcastReceiver.EXTRA_CALLKIT_DATETIME,"")
             data.handle =
                     bundle.getString(CallkitIncomingBroadcastReceiver.EXTRA_CALLKIT_HANDLE, "")
             data.avatar =

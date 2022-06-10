@@ -31,7 +31,10 @@ class CallkitIncomingBroadcastReceiver : BroadcastReceiver() {
         const val EXTRA_CALLKIT_ID = "EXTRA_CALLKIT_ID"
         const val EXTRA_CALLKIT_NAME_CALLER = "EXTRA_CALLKIT_NAME_CALLER"
         const val EXTRA_CALLKIT_APP_NAME = "EXTRA_CALLKIT_APP_NAME"
+        const val EXTRA_CALLKIT_SERVICE_TYPE = "EXTRA_CALLKIT_SERVICE_TYPE"
+        const val EXTRA_CALLKIT_DATETIME = "EXTRA_CALLKIT_DATETIME"
         const val EXTRA_CALLKIT_HANDLE = "EXTRA_CALLKIT_HANDLE"
+        const val EXTRA_CALLKIT_TITLE = "EXTRA_CALLKIT_TITLE"
         const val EXTRA_CALLKIT_TYPE = "EXTRA_CALLKIT_TYPE"
         const val EXTRA_CALLKIT_AVATAR = "EXTRA_CALLKIT_AVATAR"
         const val EXTRA_CALLKIT_DURATION = "EXTRA_CALLKIT_DURATION"
@@ -186,7 +189,10 @@ class CallkitIncomingBroadcastReceiver : BroadcastReceiver() {
                 "ringtonePath" to data.getString(EXTRA_CALLKIT_RINGTONE_PATH, ""),
                 "backgroundColor" to data.getString(EXTRA_CALLKIT_BACKGROUND_COLOR, ""),
                 "backgroundUrl" to data.getString(EXTRA_CALLKIT_BACKGROUND_URL, ""),
-                "actionColor" to data.getString(EXTRA_CALLKIT_ACTION_COLOR, "")
+                "actionColor" to data.getString(EXTRA_CALLKIT_ACTION_COLOR, ""),
+                "title" to data.getString(EXTRA_CALLKIT_TITLE, ""),
+                "serviceType" to data.getString(EXTRA_CALLKIT_SERVICE_TYPE, ""),
+                "dateTime" to data.getString(EXTRA_CALLKIT_DATETIME, ""),
         )
         val forwardData = mapOf(
                 "id" to data.getString(EXTRA_CALLKIT_ID, ""),

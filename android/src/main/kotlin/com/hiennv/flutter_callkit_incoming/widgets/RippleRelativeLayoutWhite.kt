@@ -18,7 +18,7 @@ import com.hiennv.flutter_callkit_incoming.Utils
 import kotlin.math.min
 
 
-class RippleRelativeLayout : RelativeLayout {
+class RippleRelativeLayoutWhite : RelativeLayout {
     private var rippleColor = 0
     private var rippleRadius = 0f
     private var rippleDurationTime = 0
@@ -54,7 +54,7 @@ class RippleRelativeLayout : RelativeLayout {
             context.obtainStyledAttributes(attrs, R.styleable.ripple_relativeLayout)
         rippleColor = typedArray.getColor(
             R.styleable.ripple_relativeLayout_ripple_color,
-            resources.getColor(R.color.ripple_main_color)
+            resources.getColor(R.color.ripple_light_color)
         )
         rippleRadius = typedArray.getDimension(
             R.styleable.ripple_relativeLayout_ripple_radius,

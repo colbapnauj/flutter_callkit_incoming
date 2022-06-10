@@ -43,8 +43,11 @@ import android.view.ViewGroup.MarginLayoutParams
 import android.os.PowerManager
 import android.os.PowerManager.WakeLock
 import android.text.TextUtils
+import com.hiennv.flutter_callkit_incoming.CallkitIncomingBroadcastReceiver.Companion.EXTRA_CALLKIT_DATETIME
+import com.hiennv.flutter_callkit_incoming.CallkitIncomingBroadcastReceiver.Companion.EXTRA_CALLKIT_SERVICE_TYPE
 import com.hiennv.flutter_callkit_incoming.CallkitIncomingBroadcastReceiver.Companion.EXTRA_CALLKIT_TEXT_ACCEPT
 import com.hiennv.flutter_callkit_incoming.CallkitIncomingBroadcastReceiver.Companion.EXTRA_CALLKIT_TEXT_DECLINE
+import com.hiennv.flutter_callkit_incoming.CallkitIncomingBroadcastReceiver.Companion.EXTRA_CALLKIT_TITLE
 
 
 class CallkitIncomingActivity : Activity() {
@@ -83,8 +86,11 @@ class CallkitIncomingActivity : Activity() {
     private lateinit var ivBackground: ImageView
     private lateinit var llBackgroundAnimation: RippleRelativeLayout
 
+    private lateinit var tvTitle: TextView
     private lateinit var tvNameCaller: TextView
     private lateinit var tvNumber: TextView
+    private lateinit var tvType: TextView
+    private lateinit var tvDateTime: TextView
     private lateinit var ivLogo: ImageView
     private lateinit var ivAvatar: CircleImageView
 
@@ -165,8 +171,11 @@ class CallkitIncomingActivity : Activity() {
         val data = intent.extras?.getBundle(EXTRA_CALLKIT_INCOMING_DATA)
         if (data == null) finish()
 
+        tvTitle.text = data?.getString(EXTRA_CALLKIT_TITLE, "Llamada Entrante")
         tvNameCaller.text = data?.getString(EXTRA_CALLKIT_NAME_CALLER, "")
         tvNumber.text = data?.getString(EXTRA_CALLKIT_HANDLE, "")
+        tvType.text = data?.getString(EXTRA_CALLKIT_SERVICE_TYPE, "")
+        tvDateTime.text = data?.getString(EXTRA_CALLKIT_DATETIME, "")
 
         val isShowLogo = data?.getBoolean(EXTRA_CALLKIT_IS_SHOW_LOGO, false)
         ivLogo.visibility = if (isShowLogo == true) View.VISIBLE else View.INVISIBLE
@@ -197,10 +206,10 @@ class CallkitIncomingActivity : Activity() {
         tvDecline.text = if(TextUtils.isEmpty(textDecline)) getString(R.string.text_decline) else textDecline
 
         val backgroundColor = data?.getString(EXTRA_CALLKIT_BACKGROUND_COLOR, "#0955fa")
-        try {
-            ivBackground.setBackgroundColor(Color.parseColor(backgroundColor))
-        } catch (error: Exception) {
-        }
+        // try {
+        //     ivBackground.setBackgroundColor(Color.parseColor(backgroundColor))
+        // } catch (error: Exception) {
+        // }
         val backgroundUrl = data?.getString(EXTRA_CALLKIT_BACKGROUND_URL, "")
         if (backgroundUrl != null && backgroundUrl.isNotEmpty()) {
             val headers = data.getSerializable(EXTRA_CALLKIT_HEADERS) as HashMap<String, Any?>
@@ -239,6 +248,9 @@ class CallkitIncomingActivity : Activity() {
 
         tvNameCaller = findViewById(R.id.tvNameCaller)
         tvNumber = findViewById(R.id.tvNumber)
+        tvTitle = findViewById(R.id.tvTitle)
+        tvType = findViewById(R.id.tvType)
+        tvDateTime = findViewById(R.id.tvDateTime)
         ivLogo = findViewById(R.id.ivLogo)
         ivAvatar = findViewById(R.id.ivAvatar)
 

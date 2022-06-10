@@ -7,5 +7,13 @@
     <color name="decline_ripple">#FB8D85</color>
 
     <color name="action_text">#FFFFFF</color>
-    <color name="ripple_main_color">#80ffffff</color>
+    <color name="ripple_main_color">#fce052</color>
+    <color name="ripple_light_color">#ffffff</color>
+
+
+    <color name="primary">#fbd207</color>
+    <color name="secondary">#060094</color>
+    <color name="dark">#000000</color>
+    <color name="medium">#666666</color>
+    <color name="start">#FF9500</color>
 </resources>
