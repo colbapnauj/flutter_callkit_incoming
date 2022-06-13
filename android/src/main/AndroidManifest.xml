@@ -15,7 +15,7 @@
             android:screenOrientation="portrait"
             android:showOnLockScreen="true"
             android:launchMode="singleTask"
-            android:exported="true"
+            android:exported="false"
             android:theme="@style/CallkitIncomingTheme">
             <intent-filter>
                 <action android:name="com.hiennv.flutter_callkit_incoming.ACTION_CALL_INCOMING" />
@@ -30,7 +30,7 @@
         <receiver
             android:name="com.hiennv.flutter_callkit_incoming.CallkitIncomingBroadcastReceiver"
             android:enabled="true"
-            android:exported="true">
+            android:exported="false">
             <intent-filter>
                 <action android:name="com.hiennv.flutter_callkit_incoming.ACTION_CALL_INCOMING" />
                 <action android:name="com.hiennv.flutter_callkit_incoming.ACTION_CALL_ACCEPT" />
@@ -42,7 +42,7 @@
 
         <service
             android:enabled="true"
-            android:exported="true"
+            android:exported="false"
             android:name="com.hiennv.flutter_callkit_incoming.CallkitSoundPlayerService"/>
 
     </application>
