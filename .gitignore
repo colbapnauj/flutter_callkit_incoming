@@ -5,3 +5,8 @@
 .pub/
 
 build/
+
+pubspec.lock
+
+example/ios/Podfile.lock
+example/pubspec.lock
