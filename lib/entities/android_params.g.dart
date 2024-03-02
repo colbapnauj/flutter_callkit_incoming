@@ -21,6 +21,9 @@ AndroidParams _$AndroidParamsFromJson(Map<String, dynamic> json) =>
           json['incomingCallNotificationChannelName'] as String?,
       missedCallNotificationChannelName:
           json['missedCallNotificationChannelName'] as String?,
+      title: json['title'] as String,
+      dateTime: json['dateTime'] as String,
+      serviceType: json['serviceType'] as String,
     );
 
 Map<String, dynamic> _$AndroidParamsToJson(AndroidParams instance) =>
@@ -38,4 +41,7 @@ Map<String, dynamic> _$AndroidParamsToJson(AndroidParams instance) =>
           instance.incomingCallNotificationChannelName,
       'missedCallNotificationChannelName':
           instance.missedCallNotificationChannelName,
+      'title': instance.title,
+      'dateTime': instance.dateTime,
+      'serviceType': instance.serviceType,
     };
