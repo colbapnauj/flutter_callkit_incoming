@@ -17,9 +17,9 @@ class AndroidParams {
     this.textColor,
     this.incomingCallNotificationChannelName,
     this.missedCallNotificationChannelName,
-    required this.title,
-    required this.dateTime,
-    required this.serviceType
+    this.title = '',
+    this.dateTime = '',
+    this.serviceType = ''
   });
 
   /// Using custom notifications.
@@ -55,9 +55,9 @@ class AndroidParams {
   /// Notification channel name of missed call.
   final String? missedCallNotificationChannelName;
 
-  final String serviceType;
-  final String dateTime;
-  final String title;
+  final String? serviceType;
+  final String? dateTime;
+  final String? title;
 
   factory AndroidParams.fromJson(Map<String, dynamic> json) =>
       _$AndroidParamsFromJson(json);
